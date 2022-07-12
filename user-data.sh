@@ -12,7 +12,6 @@ exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
  curl -L -O https://github.com/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
  tar -xvzf ./codeql-bundle-linux64.tar.gz
  rm ./codeql-bundle-linux64.tar.gz
- mkdir /opt
  mv ./codeql /opt
  mkdir -p /codeql-dbs/example-repo-multi
  chown -R jenkins /codeql-dbs
