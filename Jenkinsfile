@@ -16,7 +16,7 @@ pipeline {
             "$language-code-scanning.qls" --sarif-category="$language" \
             --format=sarif-latest --output="/tmp/example-repo-$language.sarif"
 
-            echo $GITHUB_PAT | /opt/codeql/codeql github upload-results \
+            echo $GITHUB_PAT | /opt/codeql/codeql github upload-results --ref=refs/heads/main \
               --sarif="/tmp/example-repo-$language.sarif" --github-auth-stdin
           done
         '''
